@@ -54,6 +54,14 @@ On Windows, activate with `.venv\Scripts\activate`. A Python 3.12 installation c
 
 Training writes local models to `artifacts/` and refreshes `reports/`. Datasets and trained binaries are excluded from Git. The example JSON is an input contract, and predictions are calculated from the locally trained model.
 
+On Linux CPU machines, run this before installing the project to avoid downloading GPU runtime packages:
+
+```bash
+python -m pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cpu
+```
+
+CI uses this official CPU build. macOS uses the regular PyTorch package.
+
 ## Experiment design
 
 ```mermaid
